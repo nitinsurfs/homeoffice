@@ -73,12 +73,13 @@ public class DirectoryReaderService{
     public String retrieveDataFilesWithSupportedMimeType() {
         File[] listOfFiles = this.readDirectory();
         for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile() && new MimetypesFileTypeMap().getContentType(listOfFiles[i]).equals("application/octet-stream")) {
-                System.out.println("File - " + listOfFiles[i].getName() + " type - "+ new MimetypesFileTypeMap().getContentType(listOfFiles[i]));
+            if (listOfFiles[i].isFile() && new MimetypesFileTypeMap().getContentType(listOfFiles[i]).equals("application/octet-stream") && FilenameUtils.getExtension(listOfFiles[i].getName()).equalsIgnoreCase("xls")) {
+                return listOfFiles[i].toPath().toString();
             }
         }
-        return "";
+        return "not found";
     }
+
 
     public List<FileMeta> fileMetaData(){
 

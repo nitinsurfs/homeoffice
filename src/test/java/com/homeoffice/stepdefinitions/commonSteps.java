@@ -16,11 +16,11 @@ public class commonSteps {
 
     @Given("^I load the data from row \"([^\"]*)\" of vehicle registration details file$")
     public void i_load_the_data_from_row_of_vehicle_registration_details_file(String arg1) throws Throwable {
-        String FilePath = "./files/Vehicle-data.xls";
+//        String filePath = "./files/Vehicle-data.xls";
         DirectoryReaderService d = new DirectoryReaderService("./files");
-        String f = d.retrieveDataFilesWithSupportedMimeType();
+        String filePath = d.retrieveDataFilesWithSupportedMimeType();
 
-        FileInputStream fs = new FileInputStream(FilePath);
+        FileInputStream fs = new FileInputStream(filePath);
         Workbook wb = Workbook.getWorkbook(fs);
         int row = Integer.parseInt(arg1);
         // TO get the access to the sheet

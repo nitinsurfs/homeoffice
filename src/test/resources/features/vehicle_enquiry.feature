@@ -1,6 +1,6 @@
 Feature: Vehicle details
 
-  @wip
+  @complete
   Scenario Outline: Verify vehicle details
     Given I load the data from row "<row>" of vehicle registration details file
     And I navigate to dvla page
